@@ -1,0 +1,53 @@
+h2 {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    font-family: 'Germania One', cursive;
+    font-size: 50px;
+    display: inline-block;
+}
+form {
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 1%;
+}
+button {
+    width: 80px;
+    height: 80px;
+    border-radius: 60px;
+    font-size: 20px;
+    font-family: 'Germania One', cursive;
+    background-color: rgb(244, 132, 132);
+    outline: none;
+}
+
+span {
+    font-family: 'Londrina Outline', cursive;
+    font-size: 100px;
+}
+.red {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+.blue {
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+}
+.green {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+.container {
+    text-align: center;
+}
+.red, .blue, .green {
+    display: inline-block;
+}
+#h4, h3 {
+    font-size: 40px;
+    font-family: 'Germania One', cursive;
+}

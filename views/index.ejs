@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sockets</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Germania+One|Londrina+Outline" rel="stylesheet">
+    <script type ="text/javascript">
+        $(document).ready(function (){
+    
+            var socket = io(); 
+            socket.on('count', function (data) { 
+            console.log(data.msg); 
+            })
+            $('#form').submit(function(){
+            socket.emit('form'); 
+            return false
+                });
+            socket.on('new_count', function (data) { 
+            $("#h3").empty()
+            $("#h3").append(data.msg)
+            })
+            $('#form2').submit(function(){
+            socket.emit('form2');
+            return false
+                });
+            $(".red").click(function(){
+            $("#h3").css("color", "red");
+            });
+            $(".blue").click(function(){
+            $("#h3").css("color", "blue");
+            });
+            $(".green").click(function(){
+            $("#h3").css("color", "green");
+            });
+            $('#form3').submit(function(){
+            socket.emit('form3'); 
+            return false
+                });
+            socket.on('font_size', function (data) { 
+            $("#h3").css("font-size",data.msg)
+            $("#h4").empty()
+            $("#h4").append(data.msg)
+            })
+            $('#form4').submit(function(){
+            socket.emit('form4');
+            return false
+                });
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Push the button</h1>
+        <form id="form">
+            <button>Press me</button>
+        </form> 
+        <form id="form2">
+            <button>Reset count</button>
+        </form>
+    </div>
+    <div class="container">
+        <h1>Choose the color</h1>  
+        <div class="red"></div>
+        <div class="blue"></div>
+        <div class="green"></div>
+    </div>
+    <div class="container">
+        <h1>Change the Font Size</h1> 
+        <form id="form3">
+            <button>Bigger</button>
+        </form> 
+        <form id="form4">
+            <button>Smaller</button>
+        </form>
+        <h3>Font Size: <span id="h4"> 100 </span> px</h3> 
+        </div>
+    <h2><span id="h3"></span></h2>
+    
+</body>
+</html>
